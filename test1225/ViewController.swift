@@ -7,14 +7,31 @@
 //
 
 import UIKit
-
+import WebKit
 class ViewController: UIViewController {
-
+    @IBAction func load(_ sender: Any) {
+        wv.reload()
+    }
+    @IBAction func back(_ sender: Any) {
+        wv.goBack()
+    }
+    
+    @IBOutlet weak var wv: WKWebView!
+    
+    @IBAction func btn(_ sender: Any) {
+        if let url = URL(string: urlTF.text!){
+            wv.load(URLRequest(url: url))
+        }
+    }
+    @IBOutlet weak var urlTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let url = URL(string: "https://www.baidu.com"){
+            wv.load(URLRequest(url: url))
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+   
 
 }
 
