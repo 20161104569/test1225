@@ -20,12 +20,14 @@ class ViewController: UIViewController {
     
     @IBAction func btn(_ sender: Any) {
         if let url = URL(string: urlTF.text!){
+            //加载网页
             wv.load(URLRequest(url: url))
         }
     }
     @IBOutlet weak var urlTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //请求路径
         if let url = URL(string: "https://www.baidu.com"){
             wv.load(URLRequest(url: url))
         }
